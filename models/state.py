@@ -6,14 +6,15 @@ from sqlalchemy import ForeignKey
 from sqlalchemy.orm import relationship
 
 
-class State(BaseModel, Baase):
+class State(BaseModel, Base):
     """ State class """
         __tablename__ = 'states'
     name = Column(String(128), nullable=False)
-    cities = relationship('City', backref='state', cascade='delete')
+    cities = relationship('City', backref='state', cascade='all, delete')
 
     if ("HBNB_TYPE_STORAGE", None) is None:
         from models import storage
+        from models.city import City
         @property
         def cities(self):
             Clist = []
