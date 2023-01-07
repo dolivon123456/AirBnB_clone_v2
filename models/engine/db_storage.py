@@ -32,7 +32,7 @@ class DBStorage:
                                           pool_pre_ping=True)
             if HBNB_ENV is 'test':
                 Base.metadata.drop_all(bind=self.__engine)
-        except:
+        except FileNotFoundError:
             raise
             print("Not Found")
 
