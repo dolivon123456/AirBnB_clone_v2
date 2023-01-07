@@ -29,6 +29,7 @@ class Place(BaseModel, Base):
     """
 
     __tablename__ = 'places'
+    amenities = []
     city_id = Column(String(60), ForeignKey('cities.id'), nullable=False)
     user_id = Column(String(60), ForeignKey('users.id'), nullable=False)
     name = Column(String(128), nullable=False)
