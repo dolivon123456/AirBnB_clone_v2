@@ -1,18 +1,14 @@
 #!/usr/bin/python3
+"""Compress web static package
 """
-This is a Fabric script that generates a .tgz archive from
-the contents of the web_static folder of your AirBnB Clone
-repo, using the function do_pack and distributes an archive
-to your web servers, using the function do_deploy.
-"""
-
-
-from fabric.api import local, put, run, env
-import os
+from fabric.api import *
 from datetime import datetime
+from os import path
 
 
-env.hosts = ['34.239.151.121', '3.239.91.139']
+env.hosts = ['18.235.233.101', '54.160.82.163']
+env.user = 'ubuntu'
+env.key_filename = '~/.ssh/id_rsa'
 
 
 def do_deploy(archive_path):
